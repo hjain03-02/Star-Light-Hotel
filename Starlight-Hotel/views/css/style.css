@@ -1,0 +1,140 @@
+/* Existing Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .navbar {
+    padding: 15px;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    height: 400px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+  }
+  
+  .img-fluid {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+  
+  .btn-light {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+  }
+  
+  .btn-light:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .btn-primary {
+    background-color: #0056b3;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #003f7f;
+  }
+  
+  footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Gallery-specific Styles */
+  .card {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-text {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #0056b3;
+  }
+  
+  .row {
+    margin-top: 30px;
+  }
+  
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .col-md-4 {
+      margin-bottom: 15px;
+    }
+    .hero {
+      height: 300px;
+      font-size: 1.2rem;
+    }
+  }
+  

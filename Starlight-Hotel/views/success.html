@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="text-success">Booking Successful!</h1>
+        <p class="lead">Thank you for booking with us. Your details are below:</p>
+
+        <div class="card p-4 shadow-lg">
+            <h2>Booking Details</h2>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Phone:</strong> <span id="phone"></span></p>
+            <p><strong>Check-in:</strong> <span id="checkIn"></span></p>
+            <p><strong>Check-out:</strong> <span id="checkOut"></span></p>
+            <p><strong>Room Type:</strong> <span id="roomType"></span></p>
+            <p><strong>Number of Guests:</strong> <span id="guests"></span></p>
+            <p><strong>Special Requests:</strong> <span id="requests"></span></p>
+        </div>
+
+        <a href="index.html" class="btn btn-primary mt-3">Return to Home</a>
+    </div>
+
+    <script>
+        // Retrieve and display booking details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("name").textContent = urlParams.get("name") || "N/A";
+        document.getElementById("email").textContent = urlParams.get("email") || "N/A";
+        document.getElementById("phone").textContent = urlParams.get("phone") || "N/A";
+        document.getElementById("checkIn").textContent = urlParams.get("checkIn") || "N/A";
+        document.getElementById("checkOut").textContent = urlParams.get("checkOut") || "N/A";
+        document.getElementById("roomType").textContent = urlParams.get("roomType") || "N/A";
+        document.getElementById("guests").textContent = urlParams.get("guests") || "N/A";
+        document.getElementById("requests").textContent = urlParams.get("requests") || "None";
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your Stay - Starlight Hotel</title>
+  <link rel="stylesheet" href="css/bootstrap.min (1).css"/>
+  <link rel="stylesheet" href="css/style.css"/> 
+  <link rel="shortcut icon" href="img/buildings.svg" type="image/x-icon"/>
+</head>
+<body>
+  <div class="container">
+    <!-- Header / Navbar -->
+    <header>
+      <br>
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center text-white" href="#">
+            <img src="img/buildings.svg" class="img-responsive rounded me-2" alt="Hotel Logo" width="50">
+            <span class="fs-4 fw-bold">Starlight Hotel</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="booking.html" class="btn btn-warning btn-lg rounded-pill shadow">Book Now</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Enhanced Carousel Section -->
+    <div id="hotelCarousel" class="carousel slide mb-5 shadow rounded" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner rounded">
+        <div class="carousel-item active">
+          <img src="img/room.jpg" class="d-block w-100" alt="Luxury Room" style="height: 500px; object-fit: cover;">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+            <h3>Luxury Rooms</h3>
+            <p>Experience elegance and comfort in our premium suites.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/city-view.jpg" class="d-block w-100" alt="Deluxe Suite" style="height: 500px; object-fit: cover;">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+            <h3>Deluxe Suites</h3>
+            <p>Perfect for families and longer stays with scenic views.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/pool.jpg" class="d-block w-100" alt="Pool Area" style="height: 500px; object-fit: cover;">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+            <h3>Infinity Pool</h3>
+            <p>Relax and unwind by the water under the stars.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="row mb-4 text-center">
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/spa.jpg" class="card-img-top" alt="Spa">
+          <div class="card-body">
+            <h5 class="card-title">Relaxing Spa</h5>
+            <p class="card-text">Rejuvenate with our full-service spa & wellness center.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/dining.jpg" class="card-img-top" alt="Dining">
+          <div class="card-body">
+            <h5 class="card-title">Fine Dining</h5>
+            <p class="card-text">Savor world-class cuisine from our gourmet chefs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/conference.jpg" class="card-img-top" alt="Conference Hall">
+          <div class="card-body">
+            <h5 class="card-title">Conference Halls</h5>
+            <p class="card-text">Perfect venues for business meetings and events.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <main>
+      <section class="text-center">
+        <h1>Book Your Stay</h1>
+        <p class="lead">Secure your reservation at Starlight Hotel for a luxurious experience.</p>
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#offersModal">View Offers</button>
+      </section>
+
+      <section class="booking-form my-4">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <form action="addPost" method="POST" class="p-4 border rounded bg-light shadow">
+              <h2 class="text-center mb-4">Reservation Details</h2>
+              
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="checkIn" class="form-label">Check-in Date</label>
+                  <input type="date" class="form-control" id="checkIn" name="checkIn" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="checkOut" class="form-label">Check-out Date</label>
+                  <input type="date" class="form-control" id="checkOut" name="checkOut" required>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="roomType" class="form-label">Room Type</label>
+                <select class="form-select" id="roomType" name="roomType" required>
+                  <option value="Luxury Room">Luxury Room</option>
+                  <option value="Deluxe Suite">Deluxe Suite</option>
+                  <option value="Executive Suite">Executive Suite</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="guests" class="form-label">Number of Guests</label>
+                <input type="number" class="form-control" id="guests" name="guests" min="1" max="10" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="requests" class="form-label">Special Requests (Optional)</label>
+                <textarea class="form-control" id="requests" name="requests" rows="3"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Window -->
+    <div class="modal fade" id="offersModal" tabindex="-1" aria-labelledby="offersModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="offersModalLabel">Special Offers</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <li>🌟 Get 15% off for stays over 5 nights</li>
+              <li>🍷 Free welcome drink on arrival</li>
+              <li>🦶 Spa voucher included for Luxury Rooms</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-3 bg-light mt-4">
+      <p>&copy; 2025 Starlight Hotel. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
