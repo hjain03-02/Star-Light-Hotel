@@ -25,7 +25,7 @@ const authenticateRole = (role, req, res, next) => {
 }
 memberController.get('/member', authenticateUser,  async (req, res, next) => {
     console.info('Inside member.html')
-    let collection = calient.db().collection('Posts')
+    let collection = client.db().collection('Posts')
     let post = Post('Security','AAA is a key concept in security','Pentester')
     util.insertOne(collection, post)
     res.sendFile('member.html',{ root: config.ROOT})
@@ -54,31 +54,22 @@ memberController.get('/postMessage',  async (req, res, next) => {
        
 })
 // HTTP POST
-memberController.post('/addPost', async (req, res, next) => {
+memberController.post('/addPost',  async (req, res, next) => {
+    // let collection = client.db().collection('Posts')
+    // let topic = req.body.topic
+    // let message = req.body.message
+    // let user = req.body.postedBy
+    // let post = Post(topic,message,user)
+    // util.insertOne(collection, post)
+   
+    // res.json(
+    //     {
+    //         message: `You post was added to the ${topic} forum`
+    //     }
+    // )
+    //Utils.saveJson(__dirname + '/../data/posts.json', JSON.stringify(posts))
     const bookingDetails = req.body;
-
-    // Get collection
-    let collection = client.db().collection('Bookings'); // You can name this whatever you like
-
-    // Create a document to insert
-    const booking = {
-        fullName: bookingDetails.fullName,
-        email: bookingDetails.email,
-        phone: bookingDetails.phone,
-        checkIn: bookingDetails.checkIn,
-        checkOut: bookingDetails.checkOut,
-        roomType: bookingDetails.roomType,
-        guests: bookingDetails.guests,
-        requests: bookingDetails.requests || "None",
-        createdAt: new Date()
-    };
-
-    // Save booking in database
-    await util.insertOne(collection, booking);
-
-    // Redirect to success page
-    res.redirect(`/success.html?name=${encodeURIComponent(booking.fullName)}&email=${encodeURIComponent(booking.email)}&phone=${encodeURIComponent(booking.phone)}&checkIn=${encodeURIComponent(booking.checkIn)}&checkOut=${encodeURIComponent(booking.checkOut)}&roomType=${encodeURIComponent(booking.roomType)}&guests=${encodeURIComponent(booking.guests)}&requests=${encodeURIComponent(booking.requests)}`);
-});
-
+    res.redirect(`/success.html?name=${encodeURIComponent(bookingDetails.fullName)}&email=${encodeURIComponent(bookingDetails.email)}&phone=${encodeURIComponent(bookingDetails.phone)}&checkIn=${encodeURIComponent(bookingDetails.checkIn)}&checkOut=${encodeURIComponent(bookingDetails.checkOut)}&roomType=${encodeURIComponent(bookingDetails.roomType)}&guests=${encodeURIComponent(bookingDetails.guests)}&requests=${encodeURIComponent(bookingDetails.requests || "None")}`);
+})
 
 module.exports = memberController
