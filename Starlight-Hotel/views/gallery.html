@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Starlight Hotel</title>
   <link rel="stylesheet" href="css/bootstrap.min (1).css">
-  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/buildings.svg" type="image/x-icon" />
+  <style>
+    #hotelCarousel .carousel-item img {
+      max-height: 500px;
+      /* Adjust this value as needed */
+      object-fit: cover;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -27,6 +36,7 @@
               <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
               <li class="nav-item"><a class="nav-link text-white" href="gallery.html">Gallery</a></li>
               <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link text-white" href="login.html">Login</a></li>
             </ul>
             <a href="booking.html" class="btn btn-warning btn-lg rounded-pill shadow">Book Now</a>
           </div>
@@ -37,9 +47,59 @@
     <main>
       <hr>
       <section class="text-center">
-        <h1>Hotel Gallery</h1>
+        <b>
+          <h1>Hotel Gallery</h1>
+        </b>
         <p class="lead">Explore our luxurious rooms and amenities</p>
-        
+      </section>
+
+      <div id="hotelCarousel" class="carousel slide mb-5 shadow-lg" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/room.jpg" class="d-block w-100 rounded" alt="Luxury Room">
+          </div>
+          <div class="carousel-item">
+            <img src="img/deluxe.jpg" class="d-block w-100 rounded" alt="Deluxe Suite">
+          </div>
+          <div class="carousel-item">
+            <img src="img/executive.jpg" class="d-block w-100 rounded" alt="Executive Suite">
+          </div>
+          <div class="carousel-item">
+            <img src="img/restaurant.jpg" class="d-block w-100 rounded" alt="Restaurant">
+          </div>
+          <div class="carousel-item">
+            <img src="img/spa.jpg" class="d-block w-100 rounded" alt="Spa">
+          </div>
+          <div class="carousel-item">
+            <img src="img/pool.jpg" class="d-block w-100 rounded" alt="Pool">
+          </div>
+          <div class="carousel-item">
+            <img src="img/city-view.jpg" class="d-block w-100 rounded" alt="City View">
+          </div>
+          <div class="carousel-item">
+            <img src="img/beach-view.jpg" class="d-block w-100 rounded" alt="Beach View">
+          </div>
+          <div class="carousel-item">
+            <img src="img/outdoor.jpg" class="d-block w-100 rounded" alt="Outdoor Dining">
+          </div>
+          <div class="carousel-item">
+            <img src="img/wedding.jpg" class="d-block w-100 rounded" alt="Wedding">
+          </div>
+          <div class="carousel-item">
+            <img src="img/conference.jpg" class="d-block w-100 rounded" alt="Conference Room">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <section class="text-center">
         <h2>Room Types</h2>
         <div class="row mb-5">
           <div class="col-md-4 mb-4">
@@ -142,7 +202,7 @@
               </div>
             </div>
           </div>
-        </div>  
+        </div>
       </section>
     </main>
 
@@ -153,4 +213,5 @@
 
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
