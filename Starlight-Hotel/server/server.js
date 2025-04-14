@@ -13,7 +13,6 @@ client.connect()
   .catch(err => console.error('❌ MongoDB connection failed:', err));
 
 // Middleware
-server.use(express.static(config.ROOT));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
@@ -25,9 +24,12 @@ server.use((req, res, next) => {
 
 // Routes
 homeController.get('/', (req, res) => {
-  res.sendFile('index.html', { root: config.ROOT });
+  res.sendFile('login.html', { root: config.ROOT });
 });
 server.use(homeController);
+
+server.use(express.static(config.ROOT));
+
 
 // Serve success page
 server.get('/success.html', (req, res) => {

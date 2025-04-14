@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlight Hotel</title>
-    <link rel="stylesheet" href="css/bootstrap.min (1).css">
-    <link rel="stylesheet" href="css/style.css"> 
-    <link rel="shortcut icon" href="img/buildings.svg" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlight Hotel</title>
+  <link rel="stylesheet" href="css/bootstrap.min (1).css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="img/buildings.svg" type="image/x-icon" />
   <style>
     body {
       background-color: #f4f6f9;
@@ -29,46 +30,142 @@
     .logo {
       width: 60px;
     }
+
+    .toggle-button {
+      cursor: pointer;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    #signupForm {
+      display: none;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="text-center mb-4">
-      <img src="img/buildings.svg" alt="Starlight Hotel Logo" class="logo mt-5">
+      <img src="img/buildings.svg" alt="Starlight Hotel Logo" class="logo mt-5" />
       <h2 class="fw-bold mt-2">Starlight Hotel</h2>
     </div>
 
     <div class="card login-card shadow p-4 bg-white">
-      <h4 class="text-center mb-4">Login to Your Account</h4>
-      <form>
+      <!-- Login Form -->
+      <form id="loginForm" method="POST">
+        <h4 class="text-center mb-4">Login to Your Account</h4>
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          <label for="loginEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="loginEmail" name="username" placeholder="Enter your email"
+            required />
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+          <label for="loginPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="loginPassword" name="password"
+            placeholder="Enter your password" required />
         </div>
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="rememberMe">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
           <label class="form-check-label" for="rememberMe">Remember me</label>
         </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
         <div class="text-center mt-3">
-          <small><a href="#" class="text-decoration-none">Forgot password?</a></small>
+          <span class="toggle-button" onclick="showSignupForm()">Don't have an account? Sign up here</span>
+        </div>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" method="POST">
+        <h4 class="text-center mb-4">Create an Account</h4>
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="signupEmail" name="username" placeholder="Enter your email"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="signupPassword" name="password"
+            placeholder="Enter your password" required />
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirm"
+            placeholder="Confirm your password" required />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        <div class="text-center mt-3">
+          <span class="toggle-button" onclick="showLoginForm()">Already have an account? Log in here</span>
         </div>
       </form>
     </div>
-
-    <div class="text-center mt-3">
-      <a href="index.html" class="btn btn-outline-secondary mt-2">← Back to Home</a>
-    </div>
   </div>
 
-  <footer class="text-center p-3 bg-light">
-    <p>&copy; 2025 Starlight Hotel. All Rights Reserved.</p>
-  </footer>
+  <script>
+    function showSignupForm() {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+    }
 
-  <script src="js/bootstrap.bundle.min.js"></script>
+    function showLoginForm() {
+      document.getElementById("signupForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    }
+
+    // Login submission
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("✅ Login successful!");
+          window.location.href = "/index.html";
+        } else {
+          alert("❌ " + (data.error || "Login failed."));
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Something went wrong.");
+      }
+    });
+
+    // Signup submission
+    document.getElementById("signupForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("signupPassword").value;
+      const confirm = document.getElementById("confirmPassword").value;
+
+      try {
+        const response = await fetch("/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password, confirm })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("✅ Sign up successful!");
+          showLoginForm(); // Instead of redirecting, switch to login view
+        } else {
+          alert("❌ " + (data.error || "Sign-up failed."));
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Something went wrong.");
+      }
+    });
+  </script>
 </body>
+
 </html>
